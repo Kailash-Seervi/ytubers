@@ -1,7 +1,14 @@
 from django.shortcuts import render
+from .models import Sliders, Team
 
 def home(request):
-    return render(request, 'webpages/home.html')
+    sliders = Sliders.objects.all()
+    teams=Team.objects.all()
+    data = {
+        'sliders':sliders,
+        'teams':teams
+    }
+    return render(request, 'webpages/home.html', data)
 
 def about(request):
     return render(request, 'webpages/about.html')
