@@ -18,7 +18,7 @@ def youtubers_detail(request, id):
     return render(request,'youtubers/youtubers_detail.html',data)
 
 def search(request):
-    tuber = Youtuber.objects.order_by('-created_date')
+    tubers = Youtuber.objects.order_by('-created_date')
     city_search=Youtuber.objects.values_list('city',flat=True).distinct()
     camera_type_search=Youtuber.objects.values_list('camera_type',flat=True).distinct()
     catergory_search = Youtuber.objects.values_list('category', flat=True).distinct()
