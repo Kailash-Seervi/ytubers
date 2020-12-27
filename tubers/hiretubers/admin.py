@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Hiretubers
 
-# Register your models here.
+admin.site.register(Hiretubers)
+
+class HiretubersAdmin(admin.ModelAdmin):
+    list_display=['first_name','tuber_name','created_date']
