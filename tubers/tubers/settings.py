@@ -33,6 +33,7 @@ LOGIN_REDIRECT_URL='dashboard'
 # Application definition
 
 INSTALLED_APPS = [
+    'contactform.apps.ContactformConfig',
     'hiretubers.apps.HiretubersConfig',
     'webpages.apps.WebpagesConfig',
     'youtubers.apps.YoutubersConfig',
