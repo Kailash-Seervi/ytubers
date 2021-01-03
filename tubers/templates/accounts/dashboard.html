@@ -13,7 +13,10 @@
     <section class="container mt-5">
       <h2 class="text-center">Welcome to Dashboard</h2>
       <h4 class="text-center text-white-50">
-        hi, First_name. Hope you are having a good day
+        hi, {% if user.is_authenticated %}
+        {{ user }}
+        {% else %}
+        {% endif %}. Hope you are having a good day
       </h4>
 
       <div class="table-responsive- mt-3">
@@ -28,30 +31,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>
-                <div class="btn btn-accent">Go to Page </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>
-                <div class="btn btn-accent">Go to Page </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>
-                <div class="btn btn-accent">Go to Page </div>
-              </td>
-            </tr>
+          {% for tuber in tubers %}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{ tuber.tuber_name }}</td>
+                <td>{{ tuber.city }}</td>
+                <td>
+                  <a href="{% url 'youtubers_detail' tuber.tuber_id %}"><div class="btn btn-accent">Go to Page </div></a>
+                </td>
+              </tr>
+          {% endfor %}
           </tbody>
         </table>
       </div>

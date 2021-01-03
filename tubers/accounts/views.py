@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
+from hiretubers.models import Hiretubers
 
 def login(request):
     if request.method == 'POST':
@@ -50,4 +51,5 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    requested_list=Hiretubers.objects.filter(user_id=request.user.id)
+    return render(request, 'accounts/dashboard.html',{'tubers':requested_list})
