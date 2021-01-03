@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Sliders(models.Model):
     headline = models.CharField(max_length=255)
@@ -36,4 +37,10 @@ class SiteFooter(models.Model):
     youtube_link=models.CharField(max_length=100)
 
     def __str__(self):
-        return self.fb_link
+        return self.fb_link or ''
+
+class AboutUs_section_one(models.Model):
+    para=RichTextField()
+
+    def __str__(self):
+        return self.para[:15] or ''

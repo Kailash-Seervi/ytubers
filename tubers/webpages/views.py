@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Sliders, Team
 from youtubers.models import Youtuber
+from webpages.models import AboutUs_section_one
 
 def home(request):
     sliders = Sliders.objects.all()
@@ -15,8 +16,10 @@ def home(request):
 
 def about(request):
     teams=Team.objects.all()
+    aboutus=AboutUs_section_one.objects.first()
     data={
         'teams':teams,
+        'aboutus_para': aboutus,
     }
     return render(request, 'webpages/about.html',data)
 

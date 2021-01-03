@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sliders,Team, SiteHeader, SiteFooter
+from .models import Sliders,Team, SiteHeader, SiteFooter, AboutUs_section_one
 from django.utils.html import format_html
 class TeamAdmin(admin.ModelAdmin):
     def myphoto(self,object):
@@ -24,7 +24,9 @@ class SiteHeaderAdmin(admin.ModelAdmin):
 class SiteFooterAdmin(admin.ModelAdmin):
     list_display=['fb_link','insta_link','twitter_link','youtube_link']
 
+
 admin.site.register(Sliders, SliderAdmin)
 admin.site.register(Team,TeamAdmin)
 admin.site.register(SiteHeader, SiteHeaderAdmin)
 admin.site.register(SiteFooter,SiteFooterAdmin)
+admin.site.register(AboutUs_section_one)
