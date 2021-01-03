@@ -21,3 +21,19 @@ class Team(models.Model):
     
     def __str__(self):
         return self.first_name
+
+class SiteHeader(models.Model):
+    email=models.CharField(max_length=100)
+    contact_no=models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.email
+
+class SiteFooter(models.Model):
+    fb_link=models.CharField(max_length=100)
+    insta_link=models.CharField(max_length=100)
+    twitter_link=models.CharField(max_length=100)
+    youtube_link=models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.fb_link
